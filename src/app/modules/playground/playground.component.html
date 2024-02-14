@@ -1,0 +1,35 @@
+<!-- Playground -->
+
+<!-- <app-youtube-shorts-widget></app-youtube-shorts-widget> -->
+<!-- <div class="d-flex align-items-center flex-column mb-10">
+  <div class="d-flex justify-content-end w-100 mt-auto">
+    <span class="fw-bolder fs-6">1/100</span>
+  </div>
+  <div class="h-5px mx-3 w-100 bg-light mb-3 border border-primary">
+    <div
+      class="bg-success rounded h-5px"
+      role="progressbar"
+      [style.width]="(3 / 100) * 100 + '%'"
+    ></div>
+  </div>
+</div> -->
+
+<!-- <button (click)="test3()">Test 3</button> -->
+
+<!-- <div *ngIf="load">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+  ></apx-chart>
+</div> -->
+
+<!-- <ngx-apex-charts *ngIf="load" [series]="chartOptions.series" [chart]="chartOptions.chart"></ngx-apex-charts> -->
+
+<!-- <div class="chart-container" *ngIf="chartOptions">
+  <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"></apx-chart>
+</div> -->
+
+<div *ngIf="chartOptions">
+  <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis" [title]="chartOptions.title"></apx-chart>
+
+</div>

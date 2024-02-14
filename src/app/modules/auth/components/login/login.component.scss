@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+  @media (min-width: 992px) {
+    .login-form {
+      width: 100%;
+      max-width: 450px;
+
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+
+i {
+  font-size: 2rem;
+}
+
+.metamask {
+  height: 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .metamask-mobile {
+    display: none;
+  }
+}

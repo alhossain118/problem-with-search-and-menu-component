@@ -1,0 +1,33 @@
+.search-bar {
+  input {
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: Poppins;
+    padding-left: 1rem;
+    padding-bottom: 0.75rem;
+    width: 100%;
+  }
+
+  input:focus-visible {
+    outline: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #a69e9c;
+    opacity: 1; /* Firefox */
+  }
+
+  .absolute-t-2 {
+    top: 2px;
+  }
+
+  .relative-t-2 {
+    bottom: 5px;
+  }
+}

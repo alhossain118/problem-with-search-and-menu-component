@@ -1,0 +1,17 @@
+.header {
+  background-color: white;
+  padding: 1rem;
+}
+
+.morejpegs-logo {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  .more {
+    color: #009ef7;
+  }
+  .jpegs {
+    color: #99a3a6;
+  }
+}

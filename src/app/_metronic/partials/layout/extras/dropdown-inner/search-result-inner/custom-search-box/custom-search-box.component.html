@@ -1,0 +1,36 @@
+<div class="d-flex search-bar" *ngIf="searchBar">
+  <span
+    class="svg-icon svg-icon-2 svg-icon-lg-1 svg-icon-gray-500 ms-0 position-relative absolute-t-2"
+  ></span>
+  <!-- (keyup)="state.refine(input.value); searchValue(input.value)"
+  [value]="state.query" -->
+  <input
+    type="text"
+    placeholder="Search..."
+    (keyup)="searchValue(input.value)"
+    #input
+  />
+  <!-- <div
+    class="btn btn-icon w-20px btn-sm btn-active-color-primary position-relative relative-t-2"
+    (click)="showChains()"
+  >
+    <span
+      [inlineSVG]="'./assets/media/icons/duotune/coding/cod001.svg'"
+      class="svg-icon svg-icon-1"
+    ></span>
+  </div> -->
+</div>
+<ng-container *ngIf="!searchBar">
+  <form [formGroup]="form">
+    <!-- (keyup)="state.refine(input.value)"
+      [value]="state.query" -->
+    <input
+      (keyup)="searchValue(input.value)"
+      class="form-control form-control-sm"
+      autocomplete="off"
+      type="text"
+      placeholder="Search..."
+      #input
+    />
+  </form>
+</ng-container>

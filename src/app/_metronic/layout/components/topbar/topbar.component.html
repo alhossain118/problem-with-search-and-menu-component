@@ -1,0 +1,195 @@
+<!-- Search toolbar -->
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    data-kt-menu-trigger="click"
+    data-kt-menu-attach="parent"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="bottom"
+  >
+    <span
+      [inlineSVG]="'./assets/media/icons/duotune/general/gen021.svg'"
+      class="svg-icon"
+      [ngClass]="toolbarButtonIconSizeClass"
+    ></span>
+  </div>
+  <app-search-result-inner
+    [searchBar]="true"
+    (searchResultClicked)="searchResultClicked($event)"
+  ></app-search-result-inner>
+</div>
+
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('upcoming')"
+  >
+    <i class="fa fa-droplet"></i>
+  </div>
+</div>
+
+<!-- <div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('calendar')"
+  >
+    <i class="fa fa-calendar"></i>
+  </div>
+</div> -->
+
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('more-info')"
+  >
+    <i class="fa-solid fa-circle-info"></i>
+  </div>
+</div>
+
+
+<!-- <i class="fa-solid fa-circle-info"></i> -->
+<!-- <div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('wallet')"
+  >
+    <i class="fa-solid fa-wallet"></i>
+  </div>
+</div> -->
+
+<!-- <div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('tools')"
+  >
+    <i class="fa-solid fa-wrench"></i>
+  </div>
+</div> -->
+
+<!-- <div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="routeTo('calendar')"
+  >
+    <i class="fa fa-calendar"></i>
+  </div>
+</div> -->
+
+<div
+  class="align-items-center"
+  [ngClass]="toolbarButtonMarginClass"
+  id="kt_header_user_menu_toggle"
+  [hidden]="!loggedIn"
+  [ngClass]="{ 'd-flex': loggedIn }"
+>
+  <div
+    class="cursor-pointer symbol"
+    [ngClass]="toolbarUserAvatarHeightClass"
+    data-kt-menu-trigger="click"
+    data-kt-menu-attach="parent"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="bottom"
+  >
+    <ng-container *ngIf="user">
+      <div
+        class="no-user-img ms-4 cursor-pointer"
+        *ngIf="(!user?.metamask && !userDetails?.image) || imageError"
+      >
+        {{ loginInfo }}
+      </div>
+
+      <div class="ms-4 profile-image" *ngIf="userDetails?.image && !imageError">
+        <app-handle-image
+          *ngIf="userDetails?.image"
+          (imageError)="imageError = true"
+          borderRadius="5px"
+          cursor="pointer"
+          [image]="userDetails?.image"
+        ></app-handle-image>
+      </div>
+
+      <div class="ms-4" *ngIf="user?.metamask && !userDetails?.image">
+        <img
+          src="./assets/logo/metamask-fox.svg"
+          class="metamask me-3 cursor-pointer"
+          alt=""
+        />
+      </div>
+    </ng-container>
+  </div>
+  <app-user-inner></app-user-inner>
+</div>
+
+<div
+  class="align-items-center"
+  [ngClass]="toolbarButtonMarginClass"
+  [hidden]="loggedIn"
+  [ngClass]="{ 'd-flex': !loggedIn }"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative ms-3"
+    [ngClass]="toolbarButtonHeightClass"
+    data-kt-menu-trigger="click"
+    data-kt-menu-attach="parent"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="bottom"
+  >
+    <a (click)="routeToLogin()">Login</a>
+  </div>
+</div>
+<!-- <span
+    [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"
+    class="svg-icon"
+    [ngClass]="toolbarButtonIconSizeClass"
+  ></span> -->
+
+<!-- <ng-container *ngIf="headerLeft === 'menu'">
+  <div
+    class="d-flex align-items-center d-lg-none ms-2 me-n3"
+    title="Show header menu"
+  >
+    <div
+      class="
+        btn btn-icon btn-active-light-primary
+        w-30px
+        h-30px
+        w-md-40px
+        h-md-40px
+      "
+      id="kt_header_menu_mobile_toggle"
+    >
+      <span
+        [inlineSVG]="'./assets/media/icons/duotune/text/txt001.svg'"
+        class="svg-icon svg-icon-1"
+      ></span>
+    </div>
+  </div>
+</ng-container> -->

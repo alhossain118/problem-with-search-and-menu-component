@@ -1,0 +1,76 @@
+<div data-kt-search-element="wrapper">
+  <form
+    data-kt-search-element="form"
+    class="w-100 position-relative"
+    autocomplete="off"
+  >
+    <div [hidden]="!(currentChain === 'eth')">
+      <app-custom-search-box
+        [searchBar]="searchBar"
+        #ethereumChain
+        (showSettings)="settingsClicked()"
+        (searchText)="searchText($event)"
+      ></app-custom-search-box>
+      <div class="separator border-gray-200"></div>
+      <!-- [ngClass]="{
+            'mb-2': showChains,
+            'mb-5': !showChains
+          }" -->
+      <ng-container *ngIf="showChains">
+        <div class="flex-row mb-2">
+          <ng-container *ngFor="let chain of blockchains; let i = index">
+            <span
+              class="badge cursor-pointer"
+              (click)="chainSelected(chain, i)"
+              [ngClass]="{
+                'badge-white': !chain.selected,
+                'badge-primary': chain.selected
+              }"
+              >{{ chain.chain }}</span
+            >
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="results?.length">
+        <div class="mt-5">
+          <!-- <div *ngIf="hits.length" class="py-3 blockchain">Ethereum</div> -->
+          <ng-container
+            *ngFor="
+              let hit of results;
+              let index = index;
+              let first = first;
+              let last = last
+            "
+            class="ais-Hits-item"
+          >
+            <ng-container *ngIf="index < 5">
+              <a
+                (click)="routeToPage(hit)"
+                class="cursor-pointer d-flex text-dark text-hover-primary menu-link"
+                data-kt-menu-dismiss="true"
+                [ngClass]="{
+                  'mt-2': !first,
+                  'mb-2': !last
+                }"
+              >
+                <div class="logo-img">
+                  <img [src]="hit.image" alt="">
+                </div>
+                <span class="ps-3 fs-6 fw-bold align-center">{{
+                  hit.name
+                }}</span>
+              </a>
+              <hr *ngIf="!last" />
+            </ng-container>
+          </ng-container>
+        </div>
+      </ng-container>
+      <div *ngIf="text.length === 42" class="py-3">
+        <div class="blockchain">Address:</div>
+        <strong (click)="routeToAddressPage(text)" class="cursor-pointer">{{
+          text
+        }}</strong>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,80 @@
+<!-- Search toolbar -->
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    data-kt-menu-trigger="click"
+    data-kt-menu-attach="parent"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="bottom"
+  ></div>
+  <app-search-result-inner
+    [searchBar]="true"
+    (searchResultClicked)="searchResultClicked()"
+  ></app-search-result-inner>
+</div>
+
+
+
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+  >
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+  >
+    <i class="fa fa-droplet"></i>
+  </div>
+</div>
+
+<div
+  class="d-flex align-items-center small-screen"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <div
+    class="btn btn-icon btn-active-light-primary position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+  >
+    <i class="fa-solid fa-circle-info"></i>
+  </div>
+</div>
+
+
+
+<div
+  class="align-items-center"
+  [ngClass]="toolbarButtonMarginClass"
+  id="kt_header_user_menu_toggle"
+  class="d-flex"
+>
+  <div
+    class="cursor-pointer symbol"
+    [ngClass]="toolbarUserAvatarHeightClass"
+    data-kt-menu-trigger="click"
+    data-kt-menu-attach="parent"
+    data-kt-menu-placement="bottom-end"
+    data-kt-menu-flip="bottom"
+  >
+    <div class="ms-4">
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </div>
+  <app-user-inner></app-user-inner>
+</div>
+
